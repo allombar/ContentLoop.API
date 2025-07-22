@@ -8,22 +8,22 @@ namespace ContentLoop.API.Controllers
     public class ArticlesController : ControllerBase
     {
         //[HttpGet]
-        //public Task<IActionResult> GetAllArticles() 
-        //{ 
+        //public Task<IActionResult> GetAllArticles()
+        //{
 
         //}
 
         //// GET /api/articles/{id}
         //[HttpGet("{id}")]
-        //public Task<IActionResult> GetArticle(Guid id) 
-        //{ 
+        //public Task<IActionResult> GetArticle(Guid id)
+        //{
 
         //}
 
         //// GET /api/articles/{id}/comments
         //[HttpGet("{id}/comments")]
-        //public Task<IActionResult> GetCommentsForArticle(Guid id) 
-        //{ 
+        //public Task<IActionResult> GetCommentsForArticle(Guid id)
+        //{
 
         //}
 
