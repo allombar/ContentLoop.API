@@ -21,5 +21,18 @@ namespace ContentLoop.BLL.Mappers
                 Role = entity.Role
             };
         }
+
+        public static ArticleModel ToBll(this ArticleEntity entity)
+        {
+            return new ArticleModel()
+            {
+                Id = entity.Id,
+                Title = entity.Title,
+                Content = entity.Content,
+                AuthorName = $"{entity.Author.FirstName} {entity.Author.LastName}",
+                ViewsCount = entity.ViewsCount,
+                CreatedAt = entity.CreatedAt
+            };
+        }
     }
 }

@@ -7,16 +7,13 @@ using System.Threading.Tasks;
 
 namespace ContentLoop.DAL.Entities
 {
-    [Table("Users")]
-    public class UserEntity
+    [Table("ArticleComments")]
+    public class ArticleCommentsEntity
     {
         public Guid Id { get; set; }
-        public string Email { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-
-        public string Password { get; set; }
-        public string Role { get; set; }
+        public Guid ArticleId { get; set; }
+        public Guid AuthorId { get; set; }
+        public string Content { get; set; }
         public DateTime CreatedAt { get; set; }
     }
 }
