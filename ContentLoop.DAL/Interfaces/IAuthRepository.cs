@@ -11,6 +11,6 @@ namespace ContentLoop.DAL.Interfaces
     {
         public Task<UserEntity?> GetByEmailAsync(string email);
         public Task<UserEntity?> GetByIdAsync(Guid id);
-        public Task<UserEntity> AddAsync(UserEntity user);
+        public Task<UserEntity?> AddAsync(UserEntity user);
     }
 }

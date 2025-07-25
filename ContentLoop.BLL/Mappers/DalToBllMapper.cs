@@ -22,6 +22,23 @@ namespace ContentLoop.BLL.Mappers
             };
         }
 
+        public static PagedResultModel<ArticleModel> PagedResultModelToBll(List<ArticleEntity> article, int totalCount, int offset, int limit)
+        {
+
+            PagedResultModel<ArticleModel> response = new();
+
+            foreach (ArticleEntity a in article)
+            {
+                response.Items.Add(a.ToBll()); 
+            }
+
+            response.TotalCount = totalCount;
+            response.Page = offset;
+            response.PageSize = limit;
+
+            return response;
+        }
+
         public static ArticleModel ToBll(this ArticleEntity entity)
         {
             return new ArticleModel()

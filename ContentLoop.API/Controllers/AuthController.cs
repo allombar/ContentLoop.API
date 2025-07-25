@@ -35,11 +35,11 @@ namespace ContentLoop.API.Controllers
 
             try
             {
-                UserModel user = await _authService.RegisterAsync(dto.ToBll());
-                string token = _tokenManager.GenerateJwt(user.Id, user.Role);
+                UserModel userModel = await _authService.RegisterAsync(dto.ToBll());
+                string token = _tokenManager.GenerateJwt(userModel.Id, userModel.Role);
 
-                UserDto userDto = user.ToDto();
-                return Ok(new { token, userDto });
+                UserDto user = userModel.ToDto();
+                return Ok(new { token, user  });
             }
             catch (ArgumentException ex)
             {

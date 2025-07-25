@@ -1,6 +1,7 @@
 ﻿using ContentLoop.BLL.Interfaces;
 using ContentLoop.BLL.Mappers;
 using ContentLoop.BLL.Models;
+using ContentLoop.DAL.Entities;
 using ContentLoop.DAL.Interfaces;
 namespace ContentLoop.BLL.Services
 {
@@ -18,13 +19,14 @@ namespace ContentLoop.BLL.Services
 
             var (entities, totalCount) = await _repository.GetPagedArticlesAsync(offset, safeLimit);
 
-            return new PagedResultModel<ArticleModel>
-            {
-                Items = entities.Select(e => e.ToBll()).ToList(),
-                TotalCount = totalCount,
-                Page = offset,
-                PageSize = safeLimit
-            };
+            return DalToBllMapper.PagedResultModelToBll(entities, totalCount, offset, safeLimit);
+        }
+
+        public async Task<ArticleModel?> GetArticleById(Guid id)
+        {
+            ArticleEntity? article = await _repository.GetArticleByIdAsync(id);
+
+            return article.ToBll();
         }
     }
 }

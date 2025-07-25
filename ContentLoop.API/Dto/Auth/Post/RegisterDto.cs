@@ -33,6 +33,7 @@ namespace ContentLoop.API.Dto.Auth.Post
 
         [Required]
         [EmailAddress]
+
         public required string Email { get; set; }
         [Required]
         public required string Password { get; set; }

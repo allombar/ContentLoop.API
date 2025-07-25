@@ -1,5 +1,5 @@
-﻿using ContentLoop.BLL.Interfaces;
-using Microsoft.AspNetCore.Http;
+﻿using ContentLoop.API.Mappers;
+using ContentLoop.BLL.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContentLoop.API.Controllers
@@ -19,12 +19,19 @@ namespace ContentLoop.API.Controllers
         public async Task<IActionResult> GetAllArticles([FromQuery] int offset = 1, [FromQuery] int limit = 5)
         {
             var result = await _articleService.GetPaginedArticlesAsync(offset, limit);
-            return Ok(result);
+            return Ok(result.ToDto());
         }
 
         //// GET /api/articles/{id}
         //[HttpGet("{id}")]
         //public Task<IActionResult> GetArticle(Guid id)
+        //{
+
+        //}
+
+        //// DELETE /api/articles/{id}
+        //[HttpDelete("{id}")]
+        //public Task<IActionResult> DeleteArticle(Guid id)
         //{
 
         //}
@@ -36,11 +43,11 @@ namespace ContentLoop.API.Controllers
 
         //}
 
-        //// POST /api/articles/{id}/comments
+        // POST /api/articles/{id}/comments
         //[HttpPost("{id}/comments")]
-        //public Task<IActionResult> AddCommentToArticle(Guid id, [FromBody] CreateCommentDto dto)
+        //public Task<IActionResult> AddCommentToArticle([FromRoute] Guid articleId, [FromBody] CreateCommentDto dto)
         //{
-
+        //    string Id = UserContextHelper.GetUserId(User);
         //}
 
         //// DELETE /api/articles/{articleId}/comments/{commentId}

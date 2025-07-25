@@ -13,6 +13,7 @@ namespace ContentLoop.DAL.Entities
         public Guid Id { get; set; }
         public Guid ArticleId { get; set; }
         public Guid AuthorId { get; set; }
+        public ArticleEntity Article { get; set; }
         public string Content { get; set; }
         public DateTime CreatedAt { get; set; }
     }

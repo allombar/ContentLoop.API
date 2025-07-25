@@ -31,11 +31,12 @@ namespace ContentLoop.DAL.Repositories
                 .FirstOrDefaultAsync(user => user.Id == id);
         }
 
-        public async Task<UserEntity> AddAsync(UserEntity user)
+        public async Task<UserEntity?> AddAsync(UserEntity user)
         {
-            await _context.Users.AddAsync(user);
+             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-            return user;
+
+            return await _context.Users.FindAsync(user.Id);
         }
     }
 }

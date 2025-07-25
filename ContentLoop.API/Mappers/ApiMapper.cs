@@ -1,4 +1,5 @@
-﻿using ContentLoop.API.Dto.Auth.Get;
+﻿using ContentLoop.API.Dto.Article.Get;
+using ContentLoop.API.Dto.Auth.Get;
 using ContentLoop.API.Dto.Auth.Post;
 using ContentLoop.BLL.Models;
 
@@ -18,6 +19,31 @@ namespace ContentLoop.API.Mappers
             };
         }
 
+        public static PagedModelDto<ArticleDto> ToDto(this PagedResultModel<ArticleModel> paged)
+        {
+            return new PagedModelDto<ArticleDto>
+            {
+                Items = paged.Items.Select(article => article.ToDto())
+                .ToList(),
+                Page = paged.Page,
+                PageSize = paged.PageSize,
+                TotalCount = paged.TotalCount
+            };
+        }
+
+        public static ArticleDto ToDto(this ArticleModel article)
+        {
+            return new ArticleDto
+            {
+                Id = article.Id,
+                Title = article.Title,
+                Content = article.Content,
+                AuthorName = article.AuthorName,
+                CreatedAt = article.CreatedAt,
+                ViewsCount = article.ViewsCount
+            };
+        }
+
         public static UserModel ToBll(this RegisterDto dto)
         {
             return new UserModel
@@ -26,7 +52,6 @@ namespace ContentLoop.API.Mappers
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
                 Password = dto.Password,
-                Role = "user",
                 CreatedAt = DateTime.Now
             };
         }

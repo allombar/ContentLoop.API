@@ -12,6 +12,7 @@ namespace ContentLoop.DAL
     {
         public DbSet<UserEntity> Users { get { return Set<UserEntity>(); } }
         public DbSet<ArticleEntity> Articles { get { return Set<ArticleEntity>(); } }
+        public DbSet<ArticleCommentsEntity> Comments { get { return Set<ArticleCommentsEntity>(); } }
         public ContentLoopDbContext(DbContextOptions options) : base(options)
         {
             Database.EnsureCreated();

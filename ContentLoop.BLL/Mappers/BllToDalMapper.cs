@@ -14,7 +14,7 @@ namespace ContentLoop.BLL.Mappers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Password = user.Password,
-                Role = user.Role,
+                Role = "User",
             };
         }
     }

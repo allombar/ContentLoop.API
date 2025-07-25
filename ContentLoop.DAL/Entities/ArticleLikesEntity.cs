@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ContentLoop.DAL.Entities
 {
-    [Table("ArticlesLikes")]
+    [Table("ArticleLikes")]
     public class ArticleLikesEntity
     {
         public Guid Id { get; set; }
