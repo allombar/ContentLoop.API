@@ -1,8 +1,10 @@
-﻿namespace ContentLoop.API.Dto.Article.Get
+﻿using ContentLoop.API.Dto.Article.Get;
+
+namespace ContentLoop.API.Dto.Article.Utils
 {
-    public class PagedModelDto<ArticleDto>
+    public class PagedResultModelDto<T>
     {
-        public List<ArticleDto> Items { get; set; }
+        public List<T> Items { get; set; }
         public int TotalCount { get; set; }
         public int Page { get; set; }
         public int PageSize { get; set; }

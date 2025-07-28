@@ -17,5 +17,18 @@ namespace ContentLoop.BLL.Mappers
                 Role = "User",
             };
         }
+        public static ArticleEntity ToEntity(this CreateArticleModel article)
+        {
+            return new ArticleEntity()
+            {
+                Id = article.Id,
+                AuthorId = article.AuthorId,
+                Title = article.Title,
+                Description = article.Description,
+                Content = article.Content,
+                CreatedAt = article.CreatedAt,
+                ViewsCount = article.ViewsCount
+            };
+        }
     }
 }
